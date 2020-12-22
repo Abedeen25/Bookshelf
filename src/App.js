@@ -1,25 +1,41 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import {
+  Alert,
+  Card,
+  CardHeader,
+  CardTitle,
+  CardImg,
+  CardBody,
+  CardFooter,
+  Button
+} from "shards-react";
+import Navibar from './components/NavbarComponent';
+import SearchComponent from './components/SearchComponent';
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Navibar />
+      <SearchComponent />
+
+      {/* <Alert className="mb-3" open={true} theme="success">Success!</Alert> */}
+
+      {/* <Card>
+        <CardImg styles={{ width: 200 }} top src="https://place-hold.it/300x200" />
+        <CardBody>
+          <p>This is the body of the card.</p>
+        </CardBody>
+      </Card>
+
+      <Card>
+        <CardImg top src="https://place-hold.it/300x200" />
+        <CardBody>
+          <p>This is the body of the card.</p>
+        </CardBody>
+      </Card> */}
     </div>
-  );
+
+  )
 }
 
 export default App;
