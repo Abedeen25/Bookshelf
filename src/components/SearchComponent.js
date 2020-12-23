@@ -1,21 +1,27 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { FaSearch } from "react-icons/fa";
 import {
     InputGroup,
     InputGroupText,
     InputGroupAddon,
     FormInput,
-    Dropdown,
-    DropdownItem,
-    DropdownToggle,
-    DropdownMenu
+    Button,
+    ButtonGroup
 } from "shards-react";
 import './SearchComponent.css'
 
-export default function SearchComponent() {
+export default function SearchComponent(props) {
+
+    const [DrawerOpen, setDrawerOpen] = useState(false)
+
+    const toggle = () => {
+        setDrawerOpen(!DrawerOpen);
+    }
+
+
     return (
         <div className="search-holder">
-            <form action="" onSubmit="">
+            <form action="" onSubmit={props.handleSubmit}>
                 <InputGroup seamless>
                     <InputGroupAddon type="prepend">
                         <InputGroupText>
@@ -23,23 +29,17 @@ export default function SearchComponent() {
                         </InputGroupText>
                     </InputGroupAddon>
 
-                    <FormInput placeholder="Search " type="text" onChange="" />
-
-                    <Dropdown
-                        addonType="append"
-                        open={false}
-                        toggle={true}
-                    >
-                        <DropdownToggle caret>Sort By </DropdownToggle>
-                        <DropdownMenu right>
-                            <DropdownItem>Release Date</DropdownItem>
-                            <DropdownItem>Most Relevant</DropdownItem>
-                        </DropdownMenu>
-                    </Dropdown>
-
+                    <FormInput placeholder="Search" type="text" onChange={props.handleChange} />
 
                 </InputGroup>
             </form>
+
+            <ButtonGroup>
+                <Button outline disabled>Sort By</Button>
+                <Button>Latest</Button>
+                <Button>Oldest</Button>
+                <Button>Relevance</Button>
+            </ButtonGroup>
 
         </div>
     );

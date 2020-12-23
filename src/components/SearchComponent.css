@@ -1,4 +1,11 @@
 .search-holder{
     width: 60%;
     margin: 2em auto 2em auto;
+    display: flex;
+    flex-direction: row;
+}
+
+form{
+    flex: 1;
+    margin-right: 2em;
 }

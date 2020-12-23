@@ -1,38 +1,37 @@
-import React from 'react';
-import {
-  Alert,
-  Card,
-  CardHeader,
-  CardTitle,
-  CardImg,
-  CardBody,
-  CardFooter,
-  Button
-} from "shards-react";
+import React, { useState } from 'react';
 import Navibar from './components/NavbarComponent';
 import SearchComponent from './components/SearchComponent';
+import ViewArea from './components/ViewArea';
+import { getBooksBySearch } from './Services/BooksAPI';
 
 const App = () => {
+  const [searchTerm, setSearchTerm] = useState('');
+  const [Books, setBooks] = useState([]);
+  const [sortTerm, setSortTerm] = useState('relevance');
+
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    await getBooksBySearch(searchTerm, setBooks, sortTerm);
+  }
+
+
+  const handleChange = (event) => {
+    // console.log(event.target.value)
+    setSearchTerm(event.target.value)
+  }
+
+  const orderChange = (event) => {
+    setSearchTerm(event.target.value)
+  }
+
+
+
   return (
     <div>
       <Navibar />
-      <SearchComponent />
-
-      {/* <Alert className="mb-3" open={true} theme="success">Success!</Alert> */}
-
-      {/* <Card>
-        <CardImg styles={{ width: 200 }} top src="https://place-hold.it/300x200" />
-        <CardBody>
-          <p>This is the body of the card.</p>
-        </CardBody>
-      </Card>
-
-      <Card>
-        <CardImg top src="https://place-hold.it/300x200" />
-        <CardBody>
-          <p>This is the body of the card.</p>
-        </CardBody>
-      </Card> */}
+      <SearchComponent handleChange={handleChange} handleSubmit={handleSubmit} />
+      <ViewArea BookList={Books} />
     </div>
 
   )
