@@ -13,6 +13,7 @@ const App = () => {
   const handleSubmit = async (event) => {
     event.preventDefault();
     await getBooksBySearch(searchTerm, setBooks, sortTerm);
+    console.log(Books)
   }
 
 
