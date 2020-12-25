@@ -12,8 +12,8 @@ const App = () => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    await getBooksBySearch(searchTerm, setBooks, sortTerm);
-    console.log(Books)
+    await getBooksBySearch(searchTerm, setBooks, sortTerm)
+    console.log(searchTerm, Books, sortTerm)
   }
 
 
@@ -31,7 +31,7 @@ const App = () => {
   return (
     <div>
       <Navibar />
-      <SearchComponent handleChange={handleChange} handleSubmit={handleSubmit} />
+      <SearchComponent handleChange={handleChange} handleSubmit={handleSubmit} sorter={setSortTerm} />
       <ViewArea BookList={Books} />
     </div>
 

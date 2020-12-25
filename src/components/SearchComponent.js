@@ -21,8 +21,8 @@ export default function SearchComponent(props) {
 
     return (
         <div className="search-holder">
-            <form action="" onSubmit={props.handleSubmit}>
-                <InputGroup seamless>
+            <form className="form-body" action="" onSubmit={props.handleSubmit}>
+                <InputGroup seamless className="input-bar">
                     <InputGroupAddon type="prepend">
                         <InputGroupText>
                             <FaSearch />
@@ -30,16 +30,29 @@ export default function SearchComponent(props) {
                     </InputGroupAddon>
 
                     <FormInput placeholder="Search" type="text" onChange={props.handleChange} />
+                    <InputGroupAddon type="append">
+                        <Button type='submit'>Search</Button>
+                    </InputGroupAddon>
 
                 </InputGroup>
+                <ButtonGroup className="Sorting-row">
+                    <Button outline disabled>Sort By</Button>
+                    <Button
+                        type='submit'
+                        onClick={() => {
+                            props.sorter('newest')
+                        }}
+                    >Latest</Button>
+                    <Button
+                        type='submit'
+                        onClick={() => {
+                            props.sorter('relevance')
+                        }}
+                    >Most Relevant</Button>
+                </ButtonGroup>
             </form>
 
-            <ButtonGroup>
-                <Button outline disabled>Sort By</Button>
-                <Button>Latest</Button>
-                <Button>Oldest</Button>
-                <Button>Relevance</Button>
-            </ButtonGroup>
+
 
         </div>
     );
