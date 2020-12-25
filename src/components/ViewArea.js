@@ -8,9 +8,8 @@ const ViewArea = (props) => {
     console.log(Books);
     return (
         <div className="viewport">
-            {/* <BookCard info={props.BookList.totalItems} /> */}
 
-            {(props.BookList.length != 0) ? (Books.map((book) => {
+            {(props.BookList.length != 0) ? (Books.map((book, i) => {
                 return (
                     <BookCard info={book.volumeInfo} BookID={book.id} />
                 )

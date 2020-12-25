@@ -7,3 +7,10 @@
     overflow: hidden;
     text-overflow: ellipsis;
 }
+
+.Ellipsis:hover {
+    white-space: normal;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+

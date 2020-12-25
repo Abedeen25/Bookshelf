@@ -11,7 +11,7 @@ const getBooksBySearch = (SearchTerm, setBooks) => {
         params: {
             q: SearchTerm,
             key: APIKey,
-            maxResults: 12,
+            maxResults: 30,
         },
     }).then((response) => {
         console.log(response.data);
