@@ -11,9 +11,9 @@ const ViewArea = (props) => {
 
             {(props.BookList.length != 0) ? (Books.map((book, i) => {
                 return (
-                    <BookCard info={book.volumeInfo} BookID={book.id} />
+                    <BookCard info={book.volumeInfo} BookID={book.id} key={i} />
                 )
-            })) : <h2 style={{ margin: '8em', color: 'gray' }}>Search the terms you want to see</h2>}
+            })) : <h2 style={{ margin: '8em', color: '#bfbfbf' }}>Search the terms you want to see</h2>}
 
         </div>
     )

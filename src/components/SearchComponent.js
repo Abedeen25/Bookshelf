@@ -12,10 +12,10 @@ import './SearchComponent.css'
 
 export default function SearchComponent(props) {
 
-    const [DrawerOpen, setDrawerOpen] = useState(false)
+    const [ButtonNo, setButtonNo] = useState(false)
 
     const toggle = () => {
-        setDrawerOpen(!DrawerOpen);
+        setButtonNo(!ButtonNo);
     }
 
 
@@ -31,22 +31,33 @@ export default function SearchComponent(props) {
 
                     <FormInput placeholder="Search" type="text" onChange={props.handleChange} />
                     <InputGroupAddon type="append">
-                        <Button type='submit'>Search</Button>
+                        <Button
+                            type='submit'
+                            onClick={() => {
+                                props.start(0)
+                            }}
+                        >Search</Button>
                     </InputGroupAddon>
 
                 </InputGroup>
                 <ButtonGroup className="Sorting-row">
                     <Button outline disabled>Sort By</Button>
                     <Button
+                        disabled={ButtonNo}
                         type='submit'
                         onClick={() => {
+                            props.start(0)
                             props.sorter('newest')
+                            toggle()
                         }}
                     >Latest</Button>
                     <Button
+                        disabled={!ButtonNo}
                         type='submit'
                         onClick={() => {
+                            props.start(0)
                             props.sorter('relevance')
+                            toggle()
                         }}
                     >Most Relevant</Button>
                 </ButtonGroup>
