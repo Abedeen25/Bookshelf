@@ -31,6 +31,7 @@ const BookCard = (props) => {
                             to='/book_details'
                             onClick={() => {
                                 props.bookSetter(props.info)
+                                console.log(props.info)
                             }}
                         >See Details</Link>
                     </div>
