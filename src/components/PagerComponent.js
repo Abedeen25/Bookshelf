@@ -28,11 +28,12 @@ export default function PagerComponent(props) {
 
                     {props.pages.map((page, i) => {
                         if (props.firstItem == page) {
-                            return (<Button>{i + 1}</Button>)
+                            return (<Button key={i}>{i + 1}</Button>)
                         } else {
                             return (<Button
                                 theme="light"
                                 type='submit'
+                                key={i}
                                 onClick={() => {
                                     props.firstItemSetter(page)
                                 }}

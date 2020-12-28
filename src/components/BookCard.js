@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-import { Card, CardBody, CardImg, Tooltip } from "shards-react";
-import './BookCardS.css'
+import { Card, CardBody, CardImg, CardFooter } from "shards-react";
+import { Link } from 'react-router-dom'
+import './BookCard.css'
 
 const BookCard = (props) => {
 
@@ -26,6 +27,12 @@ const BookCard = (props) => {
                 <CardBody>
                     <div className='Ellipsis'>
                         <h5>{props.info.title}</h5>
+                        <Link
+                            to='/book_details'
+                            onClick={() => {
+                                props.bookSetter(props.info)
+                            }}
+                        >See Details</Link>
                     </div>
                 </CardBody>
             </Card>
